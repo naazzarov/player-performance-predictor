@@ -72,7 +72,17 @@ def predict_player_future(player_name, dataset, seasons=3, current_age=30):
 # Load your dataset
 df = pd.read_csv('players.csv')
 
-# Predict for a player (e.g., "Lionel Messi")
-player = input("Player To Predict: ")
-future_performance = predict_player_future(player, df, seasons=3)
-print(future_performance)
+# Predict for a player
+if __name__ == "__main__":
+    try:
+        player = input("🎯 Enter player name to predict: ").strip()
+        if not player:
+            print("❌ Error: Please enter a valid player name")
+        else:
+            future_performance = predict_player_future(player, df, seasons=3)
+            print("\n✅ Predictions for the next 3 seasons:")
+            print(future_performance.to_string(index=False))
+    except ValueError as e:
+        print(f"❌ Error: {e}")
+    except FileNotFoundError:
+        print("❌ Error: players.csv or model file not found")

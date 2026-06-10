@@ -1,19 +1,15 @@
 import pandas as pd
 
-# Load the dataset
 df = pd.read_csv("players.csv")
 
-# Drop rows with missing ratings
-df = df.dropna(subset=["Seasons Ratings"])
+df.dropna(subset=["Seasons Ratings"], inplace=True)
 
-# Only fill missing numeric columns with median
-numeric_cols = df.select_dtypes(include=['float64', 'int64']).columns
-df[numeric_cols] = df[numeric_cols].fillna(df[numeric_cols].median())
+feature_cols = ["Matches", "Goals", "Assists"]
+for col in feature_cols:
+    df[col] = df[col].fillna(df[col].median())
 
-# Show any remaining missing values
-print("\n❓ Missing values after cleaning:")
+print("\nMissing values after cleaning:")
 print(df.isnull().sum())
 
-# Show a preview of the cleaned data
-print("\n📋 First few rows of the dataset:")
+print("\nFirst few rows of the dataset:")
 print(df.head())

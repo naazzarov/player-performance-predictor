@@ -1,12 +1,7 @@
-# Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
 *$py.class
-
-# C extensions
 *.so
-
-# Distribution / packaging
 .Python
 build/
 develop-eggs/
@@ -23,31 +18,18 @@ wheels/
 *.egg-info/
 .installed.cfg
 *.egg
-
-# PyInstaller
 *.manifest
 *.spec
-
-# Jupyter Notebook
-.ipynb_checkpoints
 .ipynb_checkpoints/
-
-# pyenv
 .python-version
-
-# Environment
 venv/
 ENV/
 env/
-
-# IDE
 .vscode/
 .idea/
 *.swp
 *.swo
 *~
 .DS_Store
-
-# Data backups
 *.csv.bak
 *.backup
